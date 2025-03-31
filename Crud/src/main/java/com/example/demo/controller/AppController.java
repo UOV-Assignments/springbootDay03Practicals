@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,6 +35,21 @@ public class AppController {
 	@GetMapping("/students")
 	public List<Student> getStudents() {
 		return students;
+	}
+	
+	@GetMapping("/student/{id}")
+	public Student getStudent(@PathVariable("id") String regNo) {
+		try {
+			for (Student student : students) {
+				if (student.getRegNo().equals(regNo)) {
+					return student;
+				}
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		
+		return null;
 	}
 
 }
