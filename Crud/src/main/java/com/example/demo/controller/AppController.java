@@ -48,8 +48,19 @@ public class AppController {
 		} catch (Exception e) {
 			return null;
 		}
-		
 		return null;
+	}
+	
+	@GetMapping("/student/age-between")
+	public List<Student> getAgeBetween(){
+		List<Student> range = new ArrayList<Student>();
+		
+		for(Student student :students) {
+			if(student.getAge()>20 && student.getAge()<25) {
+				range.add(student);
+			}
+		}
+		return range;
 	}
 
 }
