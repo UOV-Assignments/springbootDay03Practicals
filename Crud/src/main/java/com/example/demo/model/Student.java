@@ -3,15 +3,25 @@ package com.example.demo.model;
 public class Student {
 	private String name;
 	private String course;
+	private int age;
 	private double gpa;
 	private String regNo;
 	
-	public Student(String name, String course, double gpa, String regNo) {
+	public Student(String name,int age, String course, double gpa, String regNo) {
 		super();
 		this.name = name;
+		this.age = age;
 		this.course = course;
 		this.gpa = gpa;
 		this.regNo = regNo;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public String getName() {
